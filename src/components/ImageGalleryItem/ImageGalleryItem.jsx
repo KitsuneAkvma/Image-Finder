@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import StyledGalleryItem from './ImageGalleryItem.styled';
 
@@ -7,10 +8,17 @@ export default class ImageGalleryItem extends Component {
     return (
       <StyledGalleryItem>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Calico_tabby_cat_-_Savannah.jpg/1200px-Calico_tabby_cat_-_Savannah.jpg"
-          alt="cat image"
+          src={this.props.thumbnail}
+          alt={this.props.tags}
+          fullsizeimage={this.props.fullSizeImage}
         />
       </StyledGalleryItem>
     );
   }
 }
+
+ImageGalleryItem.propTypes = {
+  thumbnail: PropTypes.string,
+  fullSizeImage: PropTypes.string,
+  tags: PropTypes.string,
+};

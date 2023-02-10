@@ -4,70 +4,24 @@ import StyledGallery from './ImageGallery.styled';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
 export default class ImageGallery extends Component {
+
+  
+
   render() {
     return (
       <StyledGallery>
         <ul>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
-          <li>
-            <ImageGalleryItem />
-          </li>
+          {this.props.images.map(image => {
+            return (
+              <li key={image.id}>
+                <ImageGalleryItem
+                  thumbnail={image.webformatURL}
+                  fullSizeImage={image.largeImageURL}
+                  description={image.tags}
+                />
+              </li>
+            );
+          })}
         </ul>
       </StyledGallery>
     );
