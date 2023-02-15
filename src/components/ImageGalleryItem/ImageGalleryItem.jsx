@@ -11,6 +11,7 @@ export default class ImageGalleryItem extends Component {
           src={this.props.thumbnail}
           alt={this.props.tags}
           fullsizeimage={this.props.fullSizeImage}
+          onClick={this.props.onImageClick}
         />
       </StyledGalleryItem>
     );

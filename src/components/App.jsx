@@ -14,21 +14,20 @@ const API_URL = `https://pixabay.com/api/?key=${API_KEY}`;
 export class App extends Component {
   state = {
     results: [],
+    filter: '',
+    currentPage: 1,
     total: 0,
     totalHits: 0,
-    modalIsOpen: false,
+    isModalOpen: false,
     isLoading: false,
   };
 
-  handleSearchSubmit = e => {
-    e.preventDefault();
-
-    // Getting form data
-    const form = e.currentTarget;
-    const keyword = form.keyword.value;
+  fetchData() {
+    const keyword = this.state.filter;
+    const page = this.state.currentPage;
 
     // GET images using axios
-    axios(API_URL + '&q=' + keyword).then(async result => {
+    axios(API_URL + `&q=${keyword}&page=${page}`).then(async result => {
       this.setState({
         results: await result.data.hits,
         total: await result.data.total,
@@ -36,11 +35,37 @@ export class App extends Component {
       });
       this.setState({ isLoading: false });
     });
+  }
+  //--------------------
+  handleSearchSubmit = e => {
+    e.preventDefault();
+
+    // Getting form data
+    const form = e.currentTarget;
+    this.setState({ filter: form.keyword.value });
+    this.setState({ currentPage: 1 });
+    this.fetchData();
   };
-  handleIGalleryDisplay() {}
-  handleLoadMore() {}
+  //--------------------
+  handleModalDisplay = e => {
+    console.log(e.target);
+    if (e.target.tagName.toLowerCase() !== 'img') {
+      this.setState({ isModalOpen: false });
+    }
+    
+  };
+  //--------------------
   handleImageClick = e => {
     console.log(e.currentTarget);
+    this.setState({ isModalOpen: true });
+  };
+  //--------------------
+  handleLoadMore = () => {
+    this.setState((prevState, props) => ({
+      currentPage: prevState.currentPage + 1,
+    }));
+    console.log(this.state.currentPage);
+    this.fetchData();
   };
 
   render() {
@@ -48,7 +73,9 @@ export class App extends Component {
       <>
         <GlobalStyle />
         <Container className="App">
-          {this.state.modalIsOpen ? <Modal /> : null}
+          {this.state.isModalOpen ? (
+            <Modal handleModal={this.handleModalDisplay} />
+          ) : null}
           <Searchbar onSearchSubmit={this.handleSearchSubmit} />
           {!this.state.isLoading ? (
             <ImageGallery
@@ -72,13 +99,3 @@ export class App extends Component {
 }
 
 export default App;
-
-//Placeholder contacts
-// { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-// { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-// { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-// { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-// { id: 'id-5', name: 'Cat Chad', number: '227-91-26' },
-// { id: 'id-6', name: 'Doogie Boomer', number: '227-91-26' },
-// { id: 'id-7', name: 'Annie Drown', number: '227-91-26' },
-// { id: 'id-8', name: 'Eden Simpson', number: '227-91-26' },
