@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSearchbar = styled.header`
-  padding-block: 1.3rem;
+  padding-block: 2.3rem;
 
   background-color: #395fab;
   box-shadow: -1px 10px 19px -6px rgba(0, 0, 0, 0.75);

@@ -5,17 +5,15 @@ const StyledModal = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 30, 0.65);
-  .modal {
-    width: 90vw;
-    height: 90vh;
-  }
+
   img {
-    width: 100%;
-    height: 100%;
+    max-width: 90vw;
+    max-height: 90vh;
+
     object-fit: contain;
   }
 `;

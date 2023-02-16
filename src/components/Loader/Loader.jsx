@@ -7,16 +7,14 @@ export default class Loader extends Component {
   render() {
     return (
       <StyledLoader>
-        <Grid
-          height="80"
-          width="80"
-          color="#395fab"
-          ariaLabel="grid-loading"
-          radius="12.5"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
+        <div class="loadingio-spinner-cube-96isy8bw2ib">
+          <div class="ldio-9rzbk4whh1h">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </StyledLoader>
     );
   }

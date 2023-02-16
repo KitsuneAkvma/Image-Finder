@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledGalleryItem = styled.div`
-  width: 22rem;
-  height: 17rem;
+  width: 19rem;
+  height: 15rem;
 
   box-shadow: -13px 9px 27px -20px rgba(0, 0, 0, 0.75);
   border-radius: 2px;

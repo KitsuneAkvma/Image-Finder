@@ -10,8 +10,8 @@ export default class ImageGalleryItem extends Component {
         <img
           src={this.props.thumbnail}
           alt={this.props.tags}
-          fullsizeimage={this.props.fullSizeImage}
           onClick={this.props.onImageClick}
+          data-fullsizeimage={this.props.fullSizeImage}
         />
       </StyledGalleryItem>
     );
