@@ -21,5 +21,6 @@ export default class ImageGalleryItem extends Component {
 ImageGalleryItem.propTypes = {
   thumbnail: PropTypes.string,
   fullSizeImage: PropTypes.string,
-  tags: PropTypes.string,
+  description: PropTypes.string,
+  onImageClick: PropTypes.func,
 };

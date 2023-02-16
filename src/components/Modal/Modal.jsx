@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import StyledModal from './Modal.styled';
 
@@ -11,3 +12,7 @@ export default class Modal extends Component {
     );
   }
 }
+Modal.propTypes = {
+  fullsizeimage: PropTypes.string,
+  handleModal: PropTypes.func,
+};
