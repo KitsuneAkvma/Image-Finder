@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { Grid } from 'react-loader-spinner';
 import StyledLoader from './Loader.styled';
 
 export default class Loader extends Component {

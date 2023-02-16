@@ -121,8 +121,8 @@ export class App extends Component {
               </p>
             </>
           ) : (
-            //  Show communicate if there aren't any results (generally of left to show)
-            this.state.results.length !== 0 && <p>THERE IS NO RESULTS</p>
+            //  Show communicate if there aren't any results
+            <p>THERE IS NO RESULTS</p>
           )}
         </Container>
       </>
